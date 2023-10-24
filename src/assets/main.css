@@ -1,0 +1,73 @@
+.background-img {
+    background-image: url('https://i.ytimg.com/vi/zo7IHLTjzew/maxresdefault.jpg?sqp=-oaymwEmCIAKENAF8quKqQMa8AEB-AH-CYAC0AWKAgwIABABGFwgNih_MA8=&rs=AOn4CLB_uQWnYBRY_Od6WUyCJMD5LF7pMQ');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 100vh;
+    /* display: flex; */
+    color: #fff;
+    font-size: 24px;
+    padding-top: 10vh;
+}
+
+.navbar {
+    background-color: transparent;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 100;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    padding: 0;
+    margin: 0;
+}
+
+.navbar a {
+    font-weight: bold;
+    color: pink;
+    text-decoration: none;
+    padding: 10px;
+    transition: color 0.3s;
+}
+
+.navbar.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+.content {
+    padding-top: 60px;
+}
+
+.navbar {
+    transition: 0.3s;
+}
+
+.sticky {
+    top: 0;
+}
+
+.card {
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card-img-container {
+    position: relative;
+    width: 100%;
+    padding-top: 75%;
+}
+
+.card-img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
