@@ -1,81 +1,106 @@
 <template>
-  <div class="background-img">
-    <div class="px-2 mx-2" >
-      <div class="row">
-        <div class="col-12">
-          <h1>Movies and Series</h1>
+  <div class="background-img background-blur-left">
+    <div class="px-2 mx-2 overlay-container">
+      <div class="row mt-5">
+        <div class="col-12 col-md-6 col-lg-3">
+          <h1 class="home-title">
+            THE POWER PUFF GIRLS MOVIE
+          </h1>
+          <h5>
+            After destroying the city of Townsville in a game of tag, a trio of super-powered little girls must redeem themselves by stopping a vengeful monkey's plot for world domination.
+          </h5>
+          <button type="button" class="btn btn-primary my-4 play-button btn-lg" @click="playMovie">
+            <i class="fas fa-play px-2"></i> Play
+          </button>
         </div>
       </div>
 
-      <div class="row mt-4">
-        <div class="col-12 mb-1">
-          <h3>Everyone's Watching</h3>
-        </div>
-        <div class="col-12">
-          <div class="row">
-            <div class="col-md-2 mb-4" v-for="(item, key) in watching" :key="key">
-              <div class="card"
-                :style="{
-                  backgroundImage: `url(${item.background})`,
-                  backgroundSize: 'cover',
-                  backgroundPosition: 'center',
-                  height: '150px',
-                  cursor: 'pointer'
-                }"
-                @click="onClick(item)"
+      <div class="row" style="margin-top: 200px;">
+        <div class="col-6">
+          <p class="fw-bold text-shadow">Books</p>
+          <div class="row home-row">
+            <div class="col-md-2 mb-4" v-for="(item, key) in books" :key="key">
+              <div class="card card-home card-book"
+                  :style="{
+                    backgroundImage: `url(${item.background})`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                    height: '176px !important',
+                    cursor: 'pointer'
+                  }"
+                  @click="gotoRead(item, 'movie')"
               >
+                  <div class="card-title">
+                    <h7>{{ item.name }}</h7>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-2">
+          <p class="fw-bold text-shadow">Games</p>
+          <div class="row home-row">
+            <div class="col-md-6 mb-4" v-for="(item, key) in games" :key="key">
+              <div class="card card-home"
+                  :style="{
+                    backgroundImage: `url(${item.background})`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                    height: '75px',
+                    cursor: 'pointer'
+                  }"
+                  @click="gotoPlay(item)"
+              >
+                  <div class="card-title">
+                    <h7>{{ item.name }}</h7>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-2">
+          <p class="fw-bold text-shadow">Movies</p>
+          <div class="row home-row">
+            <div class="col-md-6 mb-4" v-for="(item, key) in movies" :key="key">
+              <div class="card card-home"
+                  :style="{
+                    backgroundImage: `url(${item.background})`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                    height: '75px',
+                    cursor: 'pointer'
+                  }"
+                  @click="gotoWatch(item, 'movie')"
+              >
+                  <div class="card-title">
+                    <h7>{{ item.name }}</h7>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-2">
+          <p class="fw-bold text-shadow">Series</p>
+          <div class="row home-row">
+            <div class="col-md-6 mb-4" v-for="(item, key) in series" :key="key">
+              <div class="card card-home"
+                  :style="{
+                    backgroundImage: `url(${item.background})`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                    height: '75px',
+                    cursor: 'pointer'
+                  }"
+                  @click="gotoWatch(item, 'series')"
+              >
+                  <div class="card-title">
+                    <h7>{{ item.name }}</h7>
+                  </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-
-      <div class="row mt-4">
-        <div class="col-12 mb-1">
-          <h3>Movies</h3>
-        </div>
-        <div class="col-12">
-          <div class="row">
-            <div class="col-md-2 mb-4" v-for="(item, key) in movies" :key="key">
-              <div class="card"
-                :style="{
-                  backgroundImage: `url(${item.background})`,
-                  backgroundSize: 'cover',
-                  backgroundPosition: 'center',
-                  height: '150px',
-                  cursor: 'pointer'
-                }"
-                @click="onClick(item)"
-              >
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="row mt-4">
-        <div class="col-12 mb-1">
-          <h3>Series</h3>
-        </div>
-        <div class="col-12">
-          <div class="row">
-            <div class="col-md-2 mb-4" v-for="(item, key) in series" :key="key">
-              <div class="card"
-                :style="{
-                  backgroundImage: `url(${item.background})`,
-                  backgroundSize: 'cover',
-                  backgroundPosition: 'center',
-                  height: '150px',
-                  cursor: 'pointer'
-                }"
-                @click="onClick(item)"
-              >
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
     </div>
   </div>
 </template>
@@ -88,6 +113,38 @@ export default {
   },
   data() {
     return {
+      books: [
+        {
+          name: 'evils, ghosts most of horror',
+          background: 'https://www.bookrix.com/image/coverpic3d.php?art=book&size=xl&p=rs40ab2e7740e15_1373743831.6306939125',
+          book_id: 'rs40ab2e7740e15_1373743831.6306939125#0,558,2484',
+        },
+        {
+          name: 'Anthology Complex',
+          background: 'https://www.bookrix.com/image/coverpic3d.php?art=book&size=xl&p=ktae0fcbd24dc75_1473069829.3167879581',
+          book_id: 'ktae0fcbd24dc75_1473069829.3167879581#0,558,152982',
+        },
+        {
+          name: 'A cute love story',
+          background: 'https://www.bookrix.com/image/coverpic3d.php?art=book&size=xl&p=nidhi.agrawal_1272188264.1893169880',
+          book_id: 'nidhi.agrawal_1272188264.1893169880#0,558,15210',
+        },
+        {
+          name: 'A Howl In The Night',
+          background: 'https://www.bookrix.com/image/coverpic3d.php?art=book&size=xl&p=lucky97_1307627974.3750898838',
+          book_id: 'lucky97_1307627974.3750898838#0,558,341046',
+        },
+        {
+          name: '*the little mermaid',
+          background: 'https://www.bookrix.com/image/coverpic3d.php?art=book&size=xl&p=narutolover11_1312172205.4071800709',
+          book_id: 'narutolover11_1312172205.4071800709#0,558,1206',
+        },
+        {
+          name: 'The Boy in the Striped Pajamas',
+          background: 'https://www.bookrix.com/image/coverpic3d.php?art=book&size=xl&p=himabindu.works8_1287209748.6565001011',
+          book_id: 'himabindu.works8_1287209748.6565001011#0,558,4068',
+        },
+      ],
       watching: [
         {
           name: 'Alita Battle Angel',
@@ -110,9 +167,9 @@ export default {
           imdb: 'tt0111161',
         },
         {
-          name: 'Spirited Away',
-          background: 'https://www.metacritic.com/a/img/resize/17305c75f21d8e5afb3bfacf2b5cf25a27fe4cc1/catalog/provider/2/2/2-87270e3bf07d8ecef4db604f76c532c9.jpg?auto=webp&fit=crop&height=675&width=1200',
-          imdb: 'tt0245429',
+          name: 'Weathering with You',
+          background: 'https://m.media-amazon.com/images/M/MV5BNzE4ZDEzOGUtYWFjNC00ODczLTljOGQtZGNjNzhjNjdjNjgzXkEyXkFqcGdeQXVyNzE5ODMwNzI@._V1_FMjpg_UX1000_.jpg',
+          imdb: 'tt9426210',
         },
         {
           name: 'Get Out',
@@ -141,28 +198,9 @@ export default {
           background: 'https://alternativemovieposters.com/wp-content/uploads/2022/02/alexander-stueber%E2%80%93eternal-sunshine.jpg',
           imdb: 'tt0338013',
         },
-        {
-          name: 'Toy Story',
-          background: 'https://lumiere-a.akamaihd.net/v1/images/p_toystory_19639_424d94a0.jpeg',
-          imdb: 'tt0114709',
-        },
-        {
-          name: 'The Silence of the Lambs',
-          background: 'https://cdn.mos.cms.futurecdn.net/aybwG6Kx6thfNAKNjXcxnV.jpg',
-          imdb: 'tt0102926',
-        },
+  
       ],
       series: [
-        {
-          name: 'Firefly',
-          background: 'https://images-na.ssl-images-amazon.com/images/S/pv-target-images/641d312c9aafe15cfff49e089ceddbfb4761891a513f6d7cb835ee4e4db79796._RI_TTW_.jpg',
-          imdb: 'tt0303461',
-        },
-        {
-          name: 'Freaks and Greeks',
-          background: 'https://images-na.ssl-images-amazon.com/images/S/pv-target-images/b2f9e873fcc89a71facd71d49d5d7916854d2c686d119bab0db87222abeb3181._RI_TTW_.jpg',
-          imdb: 'tt0193676',
-        },
         {
           name: 'The Night Of',
           background: 'https://play-lh.googleusercontent.com/kGrjAcfiZHzjWeEfwb3vLWn1QA8KhexTl19dQbbyDkgkQncxMZsGYW0K8PrZPbJ-GBQ',
@@ -183,13 +221,44 @@ export default {
           background: 'https://flxt.tmsimg.com/assets/p8000042_b_h10_ae.jpg',
           imdb: 'tt0374463',
         },
+      ],
+      games: [
+        {
+          name: 'Mine Clone',
+          background: 'https://images.crazygames.com/mine-clone/20211108154013/mine-clone-cover?auto=format%2Ccompress&q=65&cs=strip&ch=DPR&w=236&fit=crop',
+          game_id: 'mine-clone',
+        },
+        {
+          name: 'Pixel Warfare',
+          background: 'https://images.crazygames.com/pixel-warfare_16x9/20231106041100/pixel-warfare_16x9-cover?auto=format%2Ccompress&q=65&cs=strip&ch=DPR&w=236&fit=crop',
+          game_id: 'pixel-warfare',
+        },
+        {
+          name: 'Terraria',
+          background: 'https://images.crazygames.com/games/terraria/cover-1620122998103.png?auto=format%2Ccompress&q=65&cs=strip&ch=DPR&w=236&fit=crop',
+          game_id: 'terraria',
+        },
+        {
+          name: 'Haunted School',
+          background: 'https://images.crazygames.com/games/haunted-school---horror-game/cover-1657021606968.png?auto=format%2Ccompress&q=65&cs=strip&ch=DPR&w=236&fit=crop',
+          game_id: 'haunted-school---horror-game',
+        },
       ]
     }
   },
   methods: {
-    onClick(data) {
-      console.log(data);
-    }
+    gotoWatch(data, type) {
+      this.$router.push({ name: 'watch-page', params: { id: data.imdb}, query: { type } });
+    },
+    gotoPlay(data) {
+      this.$router.push({ name: 'play-page', params: { id: data.game_id} });
+    },
+    gotoRead(data) {
+      this.$router.push({ name: 'read-page', params: { id: data.book_id} });
+    },
+    playMovie() {
+      this.$router.push({ name: 'watch-page', params: { id: 'tt0289408'}, query: { type: 'movie' } });
+    },
   }
 }
 </script>

@@ -1,73 +1,196 @@
 .background-img {
-    background-image: url('https://i.ytimg.com/vi/zo7IHLTjzew/maxresdefault.jpg?sqp=-oaymwEmCIAKENAF8quKqQMa8AEB-AH-CYAC0AWKAgwIABABGFwgNih_MA8=&rs=AOn4CLB_uQWnYBRY_Od6WUyCJMD5LF7pMQ');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    min-height: 100vh;
-    /* display: flex; */
-    color: #fff;
-    font-size: 24px;
-    padding-top: 10vh;
+	background-image: url('@/assets/background.jpg');
+	background-size: cover;
+	background-position: center;
+	background-attachment: fixed;
+	min-height: 100vh;
+	color: #fff;
+	font-size: 24px;
+	padding-top: 10vh;
+	z-index: 1;
+}
+
+.background-blur-left::before {
+	content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 70%;
+  height: 100%;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 100%);
+	z-index: 2;
+}
+
+.background-blur-bottom::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%; /* Adjust the width of the overlay */
+  height: 100%;
+  background: linear-gradient(to top, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 100%);
+  z-index: 2;
+}
+
+.overlay-container {
+  position: relative;
+  z-index: 3;
 }
 
 .navbar {
-    background-color: transparent;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 100;
+	background-color: transparent;
+	position: fixed;
+	width: 100%;
+	top: 0;
+	z-index: 100;
 }
 
 .navbar ul {
-    list-style: none;
-    display: flex;
-    justify-content: space-around;
-    padding: 0;
-    margin: 0;
+	list-style: none;
+	display: flex;
+	justify-content: space-around;
+	padding: 0;
+	margin: 0;
 }
 
 .navbar a {
-    font-weight: bold;
-    color: pink;
-    text-decoration: none;
-    padding: 10px;
-    transition: color 0.3s;
+	font-weight: bold;
+	color: pink;
+	text-decoration: none;
+	padding: 10px;
+	transition: color 0.3s;
 }
 
 .navbar.sticky {
-    position: fixed;
-    top: 0;
-    width: 100%;
+	position: fixed;
+	top: 0;
+	width: 100%;
 }
 .content {
-    padding-top: 60px;
+	padding-top: 60px;
 }
 
 .navbar {
-    transition: 0.3s;
+	transition: 0.3s;
 }
 
 .sticky {
-    top: 0;
+	top: 0;
 }
 
 .card {
-    transition: transform 0.3s;
+	transition: transform 0.3s;
 }
 
 .card:hover {
-    transform: scale(1.05);
+	transform: scale(1.05);
 }
 
 .card-img-container {
-    position: relative;
-    width: 100%;
-    padding-top: 75%;
+	position: relative;
+	width: 100%;
+	padding-top: 75%;
 }
 
 .card-img {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.card {
+  position: relative;
+  overflow: hidden;
+}
+
+.card-title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 16px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+	z-index: 2;
+	text-align: center;
+}
+
+.card:hover .card-title {
+  opacity: 1;
+}
+
+/* Overlay */
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Adjust the overlay color and opacity */
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+.home-title {
+	font-size: 2em;
+}
+
+.play-button {
+	min-width: 160px;
+	text-align: left;
+
+	background-color: #ffc0cb;
+  color: #fff;
+  border-color: #ffc0cb;
+	border-radius: 25px;
+}
+
+.card-home {
+	border-radius: 0;
+}
+
+.card-book {
+	height: 100% !important;
+}
+
+.home-row {
+	/* height: 352px; */
+}
+
+.play-button:hover {
+  background-color: #ff8ac7;
+  border-color: #ff8ac7;
+}
+
+.play-button:active {
+  background-color: #ff0084c9 !important;
+  color: #fff;
+  border-color: #ff0084c9 !important;
+}
+
+.nav-item-text {
+  text-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+}
+
+.text-shadow {
+  text-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+}
+
+@media (max-width: 991px) {
+	.non-sticky-navbar {
+		margin-bottom: 0 !important;
+		background-color: rgba(0, 0, 0, 0.7);
+	}
+
+	.background-img {
+		padding-top: 15vh;
+	}
 }
