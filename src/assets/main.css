@@ -31,11 +31,11 @@ body {
 .background-blur-bottom::before {
   content: '';
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%; /* Adjust the width of the overlay */
-  height: 100%;
-  background: linear-gradient(to top, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 100%);
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(to bottom right, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 100%);
   z-index: 2;
 }
 
