@@ -16,10 +16,10 @@
       </div>
 
       <div class="row" style="margin-top: 200px;">
-        <div class="col-6">
+        <div class="col-md-6 col-12">
           <p class="fw-bold text-shadow">Books</p>
-          <div class="row home-row">
-            <div class="col-md-2 mb-4" v-for="(item, key) in books" :key="key">
+          <div class="row">
+            <div class="col-6 col-md-2 mb-4" v-for="(item, key) in books" :key="key">
               <div class="card card-home card-book"
                   :style="{
                     backgroundImage: `url(${item.background})`,
@@ -31,15 +31,15 @@
                   @click="gotoRead(item, 'movie')"
               >
                   <div class="card-title">
-                    <h7>{{ item.name }}</h7>
+                    <small>{{ item.name }}</small>
                   </div>
               </div>
             </div>
           </div>
         </div>
-        <div class="col-2">
+        <div class="col-6 col-md-2">
           <p class="fw-bold text-shadow">Games</p>
-          <div class="row home-row">
+          <div class="row">
             <div class="col-md-6 mb-4" v-for="(item, key) in games" :key="key">
               <div class="card card-home"
                   :style="{
@@ -52,15 +52,15 @@
                   @click="gotoPlay(item)"
               >
                   <div class="card-title">
-                    <h7>{{ item.name }}</h7>
+                    <small>{{ item.name }}</small>
                   </div>
               </div>
             </div>
           </div>
         </div>
-        <div class="col-2">
+        <div class="col-6 col-md-2">
           <p class="fw-bold text-shadow">Movies</p>
-          <div class="row home-row">
+          <div class="row">
             <div class="col-md-6 mb-4" v-for="(item, key) in movies" :key="key">
               <div class="card card-home"
                   :style="{
@@ -73,15 +73,15 @@
                   @click="gotoWatch(item, 'movie')"
               >
                   <div class="card-title">
-                    <h7>{{ item.name }}</h7>
+                    <small>{{ item.name }}</small>
                   </div>
               </div>
             </div>
           </div>
         </div>
-        <div class="col-2">
+        <div class="col-6 col-md-2">
           <p class="fw-bold text-shadow">Series</p>
-          <div class="row home-row">
+          <div class="row">
             <div class="col-md-6 mb-4" v-for="(item, key) in series" :key="key">
               <div class="card card-home"
                   :style="{
@@ -94,7 +94,7 @@
                   @click="gotoWatch(item, 'series')"
               >
                   <div class="card-title">
-                    <h7>{{ item.name }}</h7>
+                    <small>{{ item.name }}</small>
                   </div>
               </div>
             </div>
@@ -247,6 +247,36 @@ export default {
     }
   },
   methods: {
+    handleArrowKeys(event) {
+      // Get the active element (focused element)
+      const activeElement = document.activeElement;
+
+      // Check if the active element is a card
+      if (activeElement.classList.contains('card-home')) {
+        const index = Array.from(activeElement.parentNode.children).indexOf(activeElement);
+
+        // Handle arrow key presses
+        switch (event.key) {
+          case 'ArrowLeft':
+            this.navigateToCard(index - 1);
+            break;
+          case 'ArrowRight':
+            this.navigateToCard(index + 1);
+            break;
+        }
+      }
+    },
+
+    navigateToCard(index) {
+      // Get all card elements
+      const cards = document.querySelectorAll('.card-home');
+
+      // Ensure the index is within bounds
+      if (index >= 0 && index < cards.length) {
+        // Focus the next card
+        cards[index].focus();
+      }
+    },
     gotoWatch(data, type) {
       this.$router.push({ name: 'watch-page', params: { id: data.imdb}, query: { type } });
     },
