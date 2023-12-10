@@ -14,7 +14,7 @@ yarn-error.log*
 pnpm-debug.log*
 
 # Firebase
-.firebase
+.firebase/*
 
 # Editor directories and files
 .idea
