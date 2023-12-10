@@ -65,7 +65,7 @@ export default {
         const userCredential = await signInWithEmailAndPassword(auth, this.email, this.password);
 				const user = userCredential.user;
 				const requestedRoute = this.$store.state.auth.requestedRoute;
-				this.$store.commit('auth/setRequestedRoute', null);
+				
         this.$swal.fire({
 					icon: 'success',
 					title: 'Success',
@@ -75,6 +75,7 @@ export default {
 
 				if(requestedRoute) {
 					this.$router.push(requestedRoute);
+					this.$store.commit('auth/setRequestedRoute', null);
 				}
       } catch (error) {
         console.error('Login error:', error.message);
