@@ -37,10 +37,10 @@
             </div>
           </div>
         </div>
-        <div class="col-6 col-md-2">
+        <div class="col-12 col-md-2">
           <p class="fw-bold text-shadow">Games</p>
           <div class="row">
-            <div class="col-md-6 mb-4" v-for="(item, key) in games" :key="key">
+            <div class="col-6 mb-4" v-for="(item, key) in games" :key="key">
               <div class="card card-home"
                   :style="{
                     backgroundImage: `url(${item.background})`,
@@ -58,10 +58,10 @@
             </div>
           </div>
         </div>
-        <div class="col-6 col-md-2">
+        <div class="col-12 col-md-2">
           <p class="fw-bold text-shadow">Movies</p>
           <div class="row">
-            <div class="col-md-6 mb-4" v-for="(item, key) in movies" :key="key">
+            <div class="col-6 mb-4" v-for="(item, key) in movies" :key="key">
               <div class="card card-home"
                   :style="{
                     backgroundImage: `url(${item.background})`,
@@ -79,10 +79,10 @@
             </div>
           </div>
         </div>
-        <div class="col-6 col-md-2">
+        <div class="col-12 col-md-2">
           <p class="fw-bold text-shadow">Series</p>
           <div class="row">
-            <div class="col-md-6 mb-4" v-for="(item, key) in series" :key="key">
+            <div class="col-6 mb-4" v-for="(item, key) in series" :key="key">
               <div class="card card-home"
                   :style="{
                     backgroundImage: `url(${item.background})`,
