@@ -14,7 +14,7 @@
 							</div>
 							<div class="col-12">
 								<div class="row">
-										<div class="col-md-2 mb-4" v-for="(item, key) in watching" :key="key">
+										<div class="col-md-2 col-6 mb-4" v-for="(item, key) in watching" :key="key">
 											<div class="card"
 													:style="{
 														backgroundImage: `url(${item.background})`,
@@ -40,7 +40,7 @@
 							</div>
 							<div class="col-12">
 								<div class="row">
-										<div class="col-md-2 mb-4" v-for="(item, key) in movies" :key="key">
+										<div class="col-md-2 col-6 mb-4" v-for="(item, key) in movies" :key="key">
 											<div class="card"
 													:style="{
 														backgroundImage: `url(${item.background})`,
@@ -66,7 +66,7 @@
 							</div>
 							<div class="col-12">
 								<div class="row">
-										<div class="col-md-2 mb-4" v-for="(item, key) in series" :key="key">
+										<div class="col-md-2 col-6 mb-4" v-for="(item, key) in series" :key="key">
 											<div class="card"
 													:style="{
 													backgroundImage: `url(${item.background})`,
