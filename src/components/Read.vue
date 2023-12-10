@@ -58,7 +58,7 @@
 							<div class="col-12 mb-1">
 								<h3>Drama</h3>
 							</div>
-							<div class="col-8 col-12">
+							<div class="col-md-8 col-12">
 								<div class="row">
 										<div class="col-md-2 col-6 mb-4" v-for="(item, key) in drama" :key="key">
 											<div class="card"
