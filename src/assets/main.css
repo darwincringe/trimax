@@ -196,6 +196,33 @@ body {
 	padding-left: 0 !important;
 }
 
+#loginModal {
+  background-color: rgba(0, 0, 0, 0.8); /* Adjust the alpha value for transparency */
+  color: white;
+}
+
+#loginModal .modal-content {
+  background-color: transparent;
+  border: none;
+}
+
+#loginModal .modal-header,
+#loginModal .modal-body,
+#loginModal .modal-footer {
+  border: none;
+}
+
+#loginModal .form-control {
+  background-color: rgba(255, 255, 255, 0.1); /* Adjust the alpha value for input field transparency */
+  color: white;
+}
+
+#loginModal .btn-primary {
+  background-color: #007bff; /* Adjust the button background color */
+  color: white;
+}
+
+
 @media (max-width: 991px) {
 	.non-sticky-navbar {
 		margin-bottom: 0 !important;
@@ -209,6 +236,10 @@ body {
 
 	.background-blur-left::before {
 		background: linear-gradient(to right, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0) 100%);
+	}
+
+	.user-icon a {
+		padding-left: 10px !important;
 	}
 
 }
