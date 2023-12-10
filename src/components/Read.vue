@@ -12,7 +12,7 @@
 							<div class="col-12 mb-1">
 								<h3>Popular Books</h3>
 							</div>
-							<div class="col-8">
+							<div class="col-md-8 col-12">
 								<div class="row">
 										<div class="col-md-2 col-6 mb-4" v-for="(item, key) in popular" :key="key">
 											<div class="card"
@@ -32,9 +32,9 @@
 										</div>
 								</div>
 							</div>
-							<div class="col-4">
+							<div class="col-md-4 col-12">
 								<div class="row">
-									<div class="col-md-4 mb-4" v-for="(item, key) in popular_2" :key="key">
+									<div class="col-md-4 mb-4 col-6" v-for="(item, key) in popular_2" :key="key">
 											<div class="card"
 													:style="{
 														backgroundImage: `url(${item.background})`,
@@ -58,7 +58,7 @@
 							<div class="col-12 mb-1">
 								<h3>Drama</h3>
 							</div>
-							<div class="col-8">
+							<div class="col-8 col-12">
 								<div class="row">
 										<div class="col-md-2 col-6 mb-4" v-for="(item, key) in drama" :key="key">
 											<div class="card"
@@ -78,9 +78,9 @@
 										</div>
 								</div>
 							</div>
-							<div class="col-4">
+							<div class="col-md-4 col-12">
 								<div class="row">
-									<div class="col-md-4 mb-4" v-for="(item, key) in drama_2" :key="key">
+									<div class="col-md-4 col-6 mb-4" v-for="(item, key) in drama_2" :key="key">
 											<div class="card"
 													:style="{
 														backgroundImage: `url(${item.background})`,
