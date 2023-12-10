@@ -7,6 +7,7 @@ import WatchPage from './components/WatchPage'
 import ReadPage from './components/ReadPage'
 import PlayPage from './components/PlayPage'
 import Read from './components/Read'
+import Play from './components/Play'
 
 Vue.use(VueRouter)
 
@@ -43,6 +44,11 @@ const router = new VueRouter({
       component: Read,
       name: 'read' 
     },
+    {
+      path: '/play',
+      component: Play,
+      name: 'play' 
+    }
   ]
 })
 

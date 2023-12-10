@@ -2,7 +2,7 @@
   <div class="background-img background-blur-left">
     <div class="px-2 mx-2 overlay-container">
       <div class="row mt-5">
-        <div class="col-12 col-md-6 col-lg-3">
+        <div class="col-12 col-md-6 col-xxl-3">
           <h1 class="home-title">
             THE POWER PUFF GIRLS MOVIE
           </h1>
@@ -22,7 +22,7 @@
             <div class="col-6 col-md-2 mb-4" v-for="(item, key) in books" :key="key">
               <div class="card card-home card-book"
                   :style="{
-                    backgroundImage: `url(${item.background})`,
+                  backgroundImage: `url(${item.background})`,
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
                     height: '176px !important',

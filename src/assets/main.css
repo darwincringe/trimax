@@ -188,6 +188,14 @@ body {
   text-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
 }
 
+.user-icon {
+	font-size: 40px;
+}
+
+.user-icon a {
+	padding-left: 0 !important;
+}
+
 @media (max-width: 991px) {
 	.non-sticky-navbar {
 		margin-bottom: 0 !important;
